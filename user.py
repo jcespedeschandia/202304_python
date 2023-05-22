@@ -37,12 +37,10 @@ guido = Usuario('Guido Van Rossum','guido@python.com')
 monty = Usuario('Monty Python', 'monty@python.com')
 joaquin = Usuario('Joaquin Cespedes','joaquin@gmail.cl')
 
-guido.deposito_misma_cuenta(50).deposito_misma_cuenta(50).deposito_misma_cuenta(150).retiro(40)
-monty.deposito_misma_cuenta(1000).deposito_misma_cuenta(1000).retiro(50).retiro(50)
-joaquin.deposito_misma_cuenta(500)
-joaquin.retiro(250).retiro(250).retiro(250)
-monty.transferir_cuenta_tercero(joaquin,100)
-joaquin.saldo()
+guido.deposito_misma_cuenta(50).deposito_misma_cuenta(50).deposito_misma_cuenta(150).retiro(40).saldo()
+monty.deposito_misma_cuenta(1000).deposito_misma_cuenta(1000).retiro(50).retiro(50).saldo()
+joaquin.deposito_misma_cuenta(500).retiro(250).retiro(250).retiro(250).saldo()
+monty.transferir_cuenta_tercero(joaquin,100).saldo()
 
 
 
