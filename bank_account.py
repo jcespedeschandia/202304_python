@@ -1,10 +1,12 @@
 class CuentaBancaria:
+    cuentas = []
     def __init__(self, cuenta, nombreCliente):
         self.tasa_interes = 0.01
         self.balance = 0.0
         self.cuenta = cuenta
         self.cliente = nombreCliente
-
+        CuentaBancaria.cuentas.append(self)
+        
     def deposito(self,monto):
         self.balance += monto
         self.generar_intereses()
@@ -38,9 +40,15 @@ class CuentaBancaria:
         print(f'El monto en la cuenta es de ${int(self.balance)}')
         return self
 
+    @classmethod
+    def resumen_cuentas(cls):
+        for cuentas in cls.cuentas:
+            cuentas.mostrar_info_cuenta()
 
 Joaquin = CuentaBancaria('17563086', 'Joaquin Esteban Cespedes Chandia')
 Roberto = CuentaBancaria('24494944', 'Roberto Carlos Perico los Palotes')
 
 Joaquin.deposito(200).deposito(200).deposito(200).retiro(1000).mostrar_info_cuenta()
 Roberto.deposito(200).deposito(200).retiro(30).retiro(30).retiro(30).retiro(30).mostrar_info_cuenta()
+
+CuentaBancaria.resumen_cuentas()
