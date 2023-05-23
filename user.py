@@ -1,5 +1,6 @@
 class Usuario: # Declaracion de una clase
     nombre_banco = 'Primer Dojo Nacional'
+    
     def __init__(self, name, email_address): 
         self.name = name
         self.email = email_address
@@ -41,6 +42,5 @@ guido.deposito_misma_cuenta(50).deposito_misma_cuenta(50).deposito_misma_cuenta(
 monty.deposito_misma_cuenta(1000).deposito_misma_cuenta(1000).retiro(50).retiro(50).saldo()
 joaquin.deposito_misma_cuenta(500).retiro(250).retiro(250).retiro(250).saldo()
 monty.transferir_cuenta_tercero(joaquin,100).saldo()
-
 
 
