@@ -1,4 +1,4 @@
-class Usuario: # Declaracion de una clase
+class Usuario: 
     nombre_banco = 'Primer Dojo Nacional'
     
     def __init__(self, name, email_address): 
