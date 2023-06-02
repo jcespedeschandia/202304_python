@@ -81,11 +81,29 @@ class CuentaBancaria:
         for cuentas in cls.cuentas:
             cuentas.mostrar_info_cuenta()
 
+class CuentaVitalicia(CuentaBancaria):
+    def __init__(self, tasaInteres, balance, cuenta_ira):
+        super().__init__(tasaInteres, balance)
+        self.cuenta_ira = cuenta_ira
+    
+    def retiro(self, monto, es_temprano):
+        if es_temprano:
+            monto = monto * 1.10
+        super().retiro(monto)
+        return self
+
+
+
 joaquin = Usuario('Joaquin', 'joaquin@gmail.cl')
 consuelo = Usuario('Consuelo', 'consuelo@hotmail.cl')
-consuelo.cuenta.deposito(5000)
-consuelo.transferir_cuenta_tercero(joaquin, 1000)
-joaquin.cuenta.mostrarBalance().deposito(1000)
+# consuelo.cuenta.deposito(5000)
+# consuelo.transferir_cuenta_tercero(joaquin, 1000)
+# joaquin.cuenta.mostrarBalance().deposito(1000)
+joaquin.saldo()
+joaquin.cuenta.mostrarBalance()
+joaquin.cuenta.retiro(CuentaVitalicia())
+
+
 
 # guido = Usuario('Guido Van Rossum','guido@python.com')
 # monty = Usuario('Monty Python', 'monty@python.com')
@@ -96,3 +114,4 @@ joaquin.cuenta.mostrarBalance().deposito(1000)
 # Roberto.deposito(200).deposito(200).retiro(30).retiro(30).retiro(30).retiro(30).mostrar_info_cuenta()
 
 # CuentaBancaria.resumen_cuentas()
+
